@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-=kpravg@st8t(k*f@ldh2r5&k4ynqej1g@8o!h2l9^25nxlr_d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1:8000', 'divorce-predictor-ml.herokuapp.com']
 
 
 # Application definition

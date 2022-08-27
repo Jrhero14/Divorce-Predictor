@@ -1,0 +1,1 @@
+web: gunicorn Divorce_web.wsgi

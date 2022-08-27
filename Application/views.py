@@ -1,9 +1,28 @@
 from django.shortcuts import render
-
+from django.shortcuts import redirect
+import requests
 # Create your views here.
 def Home(request):
-    print(request.POST)
     return render(request, "index.html")
+
+def Result(request):
+    try:
+        raw_data = []
+        for key, val in request.POST.items():
+            raw_data.append(val)
+        raw_data = raw_data[1:]
+        api_url = "https://divorce-ml-api.herokuapp.com/machine"
+        result = requests.post(url=api_url, json={"input": list(raw_data)}).json()
+        if (int(result["value"]) == 1):
+            predict = True
+        else:
+            predict = False
+        ctx = {'prediksi': predict}
+        print(raw_data)
+        print(result)
+        return render(request, "result.html", context=ctx)
+    except:
+        return redirect('/')
 
 class dataClass:
     def __init__(self, per: None, question, num, ri0, ri1, ri2, ri3, ri4):

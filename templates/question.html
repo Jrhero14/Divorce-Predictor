@@ -49,7 +49,7 @@ https://templatemo.com/tm-578-first-portfolio
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <a href="index.html" class="navbar-brand mx-auto mx-lg-0">JrWeb</a>
+            <a href="/" class="navbar-brand mx-auto mx-lg-0">JrWeb</a>
 
             <div class="d-flex align-items-center d-lg-none">
                 <i class="navbar-icon bi-telephone-plus me-3"></i>
@@ -61,7 +61,7 @@ https://templatemo.com/tm-578-first-portfolio
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-lg-5">
                     <li class="nav-item">
-                        <a class="nav-link click-scroll" href="#section_1">Home</a>
+                        <a class="nav-link click-scroll" href="/">Home</a>
                     </li>
                 </ul>
 
@@ -110,38 +110,36 @@ https://templatemo.com/tm-578-first-portfolio
                 <section class="clients pt-5 pb-5">
                 <div class="container col-lg-10 col-12 mx-auto">
                     <div class="row align-items-center">
-                        <h4 class="text-center mb-3">Keterangan Pengisian:</h4>
-                        <h5 class="text-left mb-1 ms-xl-5">• 0 = Sangat Tidak Setuju</h5>
-                        <h5 class="text-left mb-1 ms-xl-5">• 1 = Tidak Setuju</h5>
-                        <h5 class="text-left mb-1 ms-xl-5">• 2 = Netral</h5>
-                        <h5 class="text-left mb-1 ms-xl-5">• 3 = Setuju</h5>
-                        <h5 class="text-left mb-1 ms-xl-5">• 4 = Sangat Setuju</h5>
+                        <h4 class="text-center mb-3"></h4>
+                        <h5 class="text-left mb-1 ms-xl-5"></h5>
                     </div>
                 </div>
             </section>
-                    <form action="/" method="POST">
+                    <form action="/result/" method="POST">
                     {% csrf_token %}
                         {% for i in items %}
                             <div class="col-lg-10 col-12 mx-auto">
-                            <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
-                                <div class="btn-group" role="group">
+                            <div class="section-title-wrap d-flex justify-content-left align-items-center mb-3">
+                                <h4 class="text-white ms-4 mb-0">{{ i.pertanyaan }}</h4>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center mt-1 mb-1">
+                            <div class="pb-5" role="group">
+                                <label class="h3">-</label>
                                         <input type="radio" class="btn-check" name="{{ i.nomor }}" id="{{ i.radio0 }}" autocomplete="off" value="0" required>
-                                        <label class="btn btn-outline-primary" for="{{ i.radio0 }}">0</label>
+                                        <label class="btn btn-outline-primary" for="{{ i.radio0 }}">Tidak Pernah</label>
 
                                         <input type="radio" class="btn-check" name="{{ i.nomor }}" id="{{ i.radio1 }}" autocomplete="off" value="1" required>
-                                        <label class="btn btn-outline-primary" for="{{ i.radio1 }}">1</label>
+                                        <label class="btn btn-outline-primary" for="{{ i.radio1 }}">Jarang</label>
 
                                         <input type="radio" class="btn-check" name="{{ i.nomor }}" id="{{ i.radio2 }}" autocomplete="off" value="2" required>
-                                        <label class="btn btn-outline-primary" for="{{ i.radio2 }}">2</label>
+                                        <label class="btn btn-outline-primary" for="{{ i.radio2 }}">Rata-rata</label>
 
                                         <input type="radio" class="btn-check" name="{{ i.nomor }}" id="{{ i.radio3 }}" autocomplete="off" value="3" required>
-                                        <label class="btn btn-outline-primary" for="{{ i.radio3 }}">3</label>
+                                        <label class="btn btn-outline-primary" for="{{ i.radio3 }}">Sering</label>
 
                                         <input type="radio" class="btn-check" name="{{ i.nomor }}" id="{{ i.radio4 }}" autocomplete="off" value="4" required>
-                                        <label class="btn btn-outline-primary" for="{{ i.radio4 }}">4</label>
-                                    </div>
-                                <h4 class="text-white ms-4 mb-0">{{ i.pertanyaan }}</h4>
-                                <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
+                                        <label class="btn btn-outline-primary" for="{{ i.radio4 }}">Selalu</label>
+                                <label class="h3">+</label>
                                     </div>
                             </div>
                         </div>
